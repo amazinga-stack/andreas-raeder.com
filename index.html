@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Andreas Raeder | Technical Project Management & Solution Engineering</title>
+    <meta name="description" content="Technical Product Owner & Solution Engineer. Ich übersetze Business-Ziele in technische „Ready-to-Code“ Tickets. Asynchron, effizient und mit 10 Jahren Erfahrung.">
+    <meta name="keywords" content="Technical Product Owner, Solution Engineering, Project Management, Andreas Raeder, Agile, Scrum, MAM, CMS, Fractional TPO">
+    <meta name="author" content="Andreas Raeder">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://andreas-raeder.com/">
+    <meta property="og:title" content="Andreas Raeder | Technical Project Management">
+    <meta property="og:description" content="Vom Anforderungs-Audit bis zur laufenden Projektbegleitung: Ich übersetze Business-Ziele in technische „Ready-to-Code“ Tickets.">
+    <meta property="og:image" content="https://andreas-raeder.com/wp-content/uploads/2023/08/1517040888428.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://andreas-raeder.com/">
+    <meta property="twitter:title" content="Andreas Raeder | Technical Project Management">
+    <meta property="twitter:description" content="Vom Anforderungs-Audit bis zur laufenden Projektbegleitung: Ich übersetze Business-Ziele in technische „Ready-to-Code“ Tickets.">
+    <meta property="twitter:image" content="https://andreas-raeder.com/wp-content/uploads/2023/08/1517040888428.jpeg">
+
+    <!-- Favicon (Placeholder using Google API for simplicity, replace with real favicon.ico) -->
+    <link rel="icon" href="https://www.google.com/s2/favicons?domain=andreas-raeder.com&sz=64">
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#6366f1', // Indigo
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        },
+                        happy: {
+                            blue: '#3b82f6',
+                            violet: '#8b5cf6',
+                            sky: '#0ea5e9',
+                            rose: '#f43f5e',
+                            amber: '#f59e0b',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(99, 102, 241, 0.15)',
+                        'glow': '0 0 20px rgba(99, 102, 241, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+        }
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#6366f1 0.7px, transparent 0.7px), radial-gradient(#6366f1 0.7px, #ffffff 0.7px);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
+            opacity: 0.06;
+        }
+        .blob {
+            position: absolute;
+            filter: blur(70px);
+            z-index: -1;
+            opacity: 0.6;
+            animation: move 12s infinite alternate ease-in-out;
+        }
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(40px, -40px) scale(1.15); }
+        }
+        
+        /* Smooth gradient text */
+        .text-gradient {
+            background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Modal Animation */
+        .modal-enter {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        .modal-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 300ms ease-out, transform 300ms ease-out;
+        }
+        .modal-exit {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .modal-exit-active {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 200ms ease-in, transform 200ms ease-in;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-700 antialiased overflow-x-hidden selection:bg-indigo-100 selection:text-indigo-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo/Brand -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="window.scrollTo(0,0)">
+                    <img src="https://andreas-raeder.com/wp-content/uploads/2023/08/1517040888428.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=Andreas+Raeder&background=6366f1&color=fff'" alt="Andreas Raeder" class="w-10 h-10 rounded-full object-cover shadow-md group-hover:shadow-glow transition-all duration-300 transform group-hover:scale-105 border-2 border-white">
+                    <span class="font-bold text-xl tracking-tight text-slate-800 ml-3 group-hover:text-brand-600 transition-colors">Andreas Raeder</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-2">
+                    <a href="#services" class="text-slate-600 hover:text-brand-600 px-4 py-2 rounded-full hover:bg-indigo-50 font-medium transition-all" data-i18n="nav_services">Pakete</a>
+                    <a href="#expertise" class="text-slate-600 hover:text-brand-600 px-4 py-2 rounded-full hover:bg-indigo-50 font-medium transition-all" data-i18n="nav_expertise">Expertise</a>
+                    <a href="#about" class="text-slate-600 hover:text-brand-600 px-4 py-2 rounded-full hover:bg-indigo-50 font-medium transition-all" data-i18n="nav_about">Über mich</a>
+                    
+                    <!-- Language Selector Desktop -->
+                    <div class="relative group px-2">
+                        <button class="flex items-center space-x-1 text-slate-600 hover:text-brand-600 font-medium py-3">
+                            <i class="fa-solid fa-globe text-lg"></i>
+                            <span id="current-lang-label" class="text-sm">DE</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] ml-1 opacity-50"></i>
+                        </button>
+                        <!-- Dropdown -->
+                        <div class="absolute right-0 top-full pt-1 hidden group-hover:block w-32 z-50">
+                            <div class="bg-white rounded-2xl shadow-soft py-2 border border-indigo-50">
+                                <button onclick="changeLanguage('de')" class="block w-full text-left px-4 py-2 text-sm text-slate-600 hover:bg-indigo-50 hover:text-brand-600 font-medium">Deutsch</button>
+                                <button onclick="changeLanguage('en')" class="block w-full text-left px-4 py-2 text-sm text-slate-600 hover:bg-indigo-50 hover:text-brand-600 font-medium">English</button>
+                                <button onclick="changeLanguage('es')" class="block w-full text-left px-4 py-2 text-sm text-slate-600 hover:bg-indigo-50 hover:text-brand-600 font-medium">Español</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="ml-4 bg-gradient-to-r from-brand-600 to-happy-violet hover:from-brand-700 hover:to-indigo-700 text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 shadow-md hover:shadow-glow" data-i18n="nav_book">
+                        Pakete ansehen
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-3">
+                     <button onclick="cycleLanguage()" class="text-brand-600 font-bold bg-indigo-50 rounded-full px-3 py-1 text-xs tracking-wide">
+                        <span id="mobile-lang-label">DE</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand-600 focus:outline-none p-2 rounded-full hover:bg-indigo-50 transition-colors">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 absolute w-full shadow-lg rounded-b-3xl">
+            <div class="px-4 pt-4 pb-8 space-y-2">
+                <a href="#services" class="block px-4 py-3 rounded-2xl text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-indigo-50" data-i18n="nav_services">Pakete</a>
+                <a href="#expertise" class="block px-4 py-3 rounded-2xl text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-indigo-50" data-i18n="nav_expertise">Expertise</a>
+                <a href="#about" class="block px-4 py-3 rounded-2xl text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-indigo-50" data-i18n="nav_about">Über mich</a>
+                <div class="pt-4 mt-4 border-t border-gray-100">
+                    <a href="#services" class="block w-full text-center px-4 py-3.5 border border-transparent rounded-full shadow-lg text-base font-bold text-white bg-gradient-to-r from-brand-600 to-happy-violet" data-i18n="nav_book">Pakete ansehen</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 hero-pattern z-0"></div>
+        <div class="blob bg-happy-sky w-96 h-96 rounded-full top-0 right-0 translate-x-1/3 -translate-y-1/4 opacity-40"></div>
+        <div class="blob bg-happy-violet w-80 h-80 rounded-full bottom-0 left-0 -translate-x-1/3 translate-y-1/3 opacity-40"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight mb-8 leading-[1.1]" data-i18n="hero_title">
+                    Technische Klarheit für dein Produkt. <span class="text-gradient">Fokus für dein Team.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed font-light max-w-2xl mx-auto" data-i18n="hero_desc">
+                    Vom Anforderungs-Audit bis zur laufenden Projektbegleitung: Ich übersetze Business-Ziele in technische „Ready-to-Code“ Tickets. Asynchron, effizient und mit 10 Jahren Erfahrung.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#services" class="bg-brand-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-brand-700 flex items-center justify-center gap-2 group" data-i18n="hero_cta_1">
+                        Pakete ansehen <i class="fa-solid fa-arrow-down ml-1 group-hover:translate-y-1 transition-transform"></i>
+                    </a>
+                    <a href="#about" class="bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-full font-bold text-lg transition-all hover:-translate-y-1 hover:border-brand-300 hover:text-brand-600 hover:bg-brand-50 flex items-center justify-center gap-2" data-i18n="hero_cta_2">
+                        Über mich
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bridge / Pain Points Section -->
+    <section class="py-20 bg-white relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900" data-i18n="bridge_title">Kommt dir das bekannt vor?</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Point 1 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-md transition-all">
+                    <div class="w-12 h-12 bg-red-100 text-red-500 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-3" data-i18n="bridge_p1_title">Unklare Tickets</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="bridge_p1_desc">
+                        Deine User Stories sind oft Einzeiler. Entwickler müssen raten oder improvisieren, was zu Bugs und Frust führt.
+                    </p>
+                </div>
+
+                <!-- Point 2 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-md transition-all">
+                    <div class="w-12 h-12 bg-orange-100 text-orange-500 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-3" data-i18n="bridge_p2_title">Velocity-Einbruch</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="bridge_p2_desc">
+                        Das Team wirkt beschäftigt, aber gefühlt kommen kaum fertige Features „auf die Straße“.
+                    </p>
+                </div>
+
+                <!-- Point 3 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-md transition-all">
+                    <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-business-time"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-3" data-i18n="bridge_p3_title">Meeting-Marathon</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="bridge_p3_desc">
+                        Ihr verbringt mehr Zeit damit, über Features zu diskutieren, als sie zu bauen.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-slate-50 rounded-r-xl border-l-4 border-brand-500 p-8 shadow-sm">
+                    <p class="text-lg font-normal text-slate-700 leading-relaxed" data-i18n="bridge_conclusion">
+                        „Das muss nicht so bleiben. Ich bringe die nötige technische Kompetenz und Struktur in dein Projekt – als externer Impuls oder begleitender Partner.“
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Packages -->
+    <section id="services" class="py-24 bg-gradient-to-br from-indigo-600 via-indigo-500 to-indigo-700 text-white relative overflow-hidden">
+        <!-- Background accents -->
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-white opacity-10 rounded-full mix-blend-overlay filter blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-happy-violet opacity-20 rounded-full mix-blend-screen filter blur-3xl translate-y-1/3 -translate-x-1/3"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-sm font-bold tracking-widest uppercase mb-4 bg-white/20 inline-block px-4 py-1 rounded-full text-white" data-i18n="pricing_subtitle">Zusammenarbeit & Preise</h2>
+                <p class="text-4xl font-extrabold text-white mb-6" data-i18n="pricing_title">Klare Definition of Done statt Stunden-Ping-Pong.</p>
+                <p class="text-indigo-100 text-lg font-light" data-i18n="pricing_desc">
+                    Starte mit einem Audit oder hole dir direkte Unterstützung für die Umsetzung.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch mb-12">
+                
+                <!-- Tier 1 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 flex flex-col border border-white/20 hover:bg-white/15 transition-all duration-300">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="tier_1_name">Project Rescue Audit</h3>
+                        <p class="text-indigo-100 text-sm font-bold mb-4 min-h-[40px]" data-i18n="tier_1_sub">Der schnelle „Unblocker“ für festgefahrene Projekte und unklare Backlogs</p>
+                        <div class="text-sm text-indigo-50 leading-relaxed mb-4" data-i18n="tier_1_ideal">Ideal für Startups & KMUs, deren Dev-Team blockiert ist oder wo die Priorisierung fehlt.</div>
+                    </div>
+
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-white">€950</span>
+                        <span class="text-indigo-200 text-xs ml-1 block mt-1" data-i18n="tier_1_price_sub">(Netto / Einmalig)</span>
+                    </div>
+                    <div class="h-px bg-white/10 w-full mb-6"></div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-start text-indigo-50 text-sm">
+                            <i class="fa-solid fa-magnifying-glass text-happy-sky mt-1 mr-3"></i>
+                            <span data-i18n="tier_1_feat_1"><strong>Status-Quo Analyse:</strong> Umfassende Durchsicht deiner Ticket-Verwaltung & Dokumentation</span>
+                        </li>
+                        <li class="flex items-start text-indigo-50 text-sm">
+                            <i class="fa-solid fa-skull-crossbones text-happy-sky mt-1 mr-3"></i>
+                            <span data-i18n="tier_1_feat_2"><strong>The Silent-Killers:</strong> Ich identifiziere die Top 3 Engpässe, die die Entwicklung ausbremsen (prozessual & technisch)</span>
+                        </li>
+                        <li class="flex items-start text-indigo-50 text-sm">
+                            <i class="fa-solid fa-video text-happy-sky mt-1 mr-3"></i>
+                            <span data-i18n="tier_1_feat_3"><strong>Video-Diagnose:</strong> Detailliertes Loom-Walkthrough durch die Ergebnisse</span>
+                        </li>
+                        <li class="flex items-start text-indigo-50 text-sm">
+                            <i class="fa-solid fa-list-check text-happy-sky mt-1 mr-3"></i>
+                            <span data-i18n="tier_1_feat_4"><strong>Action-Plan:</strong> Priorisierte Schritt-für-Schritt-Anleitung zur sofortigen Behebung („Quick Wins“).</span>
+                        </li>
+                    </ul>
+                    <button onclick="openModal('Audit')" class="block w-full py-4 px-6 bg-white/10 hover:bg-white/20 text-white font-bold text-center rounded-full transition-colors border border-white/20 mt-auto" data-i18n="tier_1_cta">Audit anfragen</button>
+                </div>
+
+                <!-- Tier 2 (Ready to Build) -->
+                <div class="bg-white rounded-[2.5rem] p-8 flex flex-col relative transform md:scale-105 shadow-2xl z-10 text-slate-800">
+                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-happy-violet to-brand-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg tracking-wide uppercase" data-i18n="recommended">Empfohlen</div>
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2" data-i18n="tier_2_name">Ready-to-Build Pack</h3>
+                        <p class="text-brand-600 text-sm font-bold mb-4 min-h-[40px]" data-i18n="tier_2_sub">Klärung und Optimierung der Anforderungen um teure Fehlentwicklungen zu verhindern</p>
+                        <div class="text-sm text-slate-600 leading-relaxed mb-4" data-i18n="tier_2_ideal">Ideal für Teams, die vor Projekt-Start einen Review auf Vollständigkeit machen wollen.</div>
+                    </div>
+
+                    <div class="mb-6">
+                        <span class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-brand-600 to-happy-violet">€1,490</span>
+                        <div class="text-slate-400 text-xs mt-1" data-i18n="tier_2_price_sub">(Netto / Einmalig)</div>
+                    </div>
+                    <div class="h-px bg-slate-100 w-full mb-8"></div>
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-start text-slate-600 text-sm">
+                            <div class="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-clipboard-check text-[10px]"></i></div>
+                            <span data-i18n="tier_2_feat_1"><strong>Requirements Review:</strong> Prüfung auf Vollständigkeit, Logikfehler und Tech-Feasibility</span>
+                        </li>
+                        <li class="flex items-start text-slate-600 text-sm">
+                            <div class="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-headset text-[10px]"></i></div>
+                            <span data-i18n="tier_2_feat_2"><strong>Tech-Aligment Call (60 min):</strong> Klärung von Edge-Cases und Constraints direkt mit deinem CTO/Lead Dev</span>
+                        </li>
+                        <li class="flex items-start text-slate-600 text-sm">
+                            <div class="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-industry text-[10px]"></i></div>
+                            <span data-i18n="tier_2_feat_3"><strong>Ticket-Factory:</strong> Erstellung von bis zu 10 detaillierten User-Stories inkl. technischer Akzeptanzkriterien</span>
+                        </li>
+                        <li class="flex items-start text-slate-600 text-sm">
+                            <div class="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-triangle-exclamation text-[10px]"></i></div>
+                            <span data-i18n="tier_2_feat_4"><strong>Risiko-Minimierung:</strong> Aufzeigen kritischer Pfade, bevor die erste Zeile Code geschrieben wird.</span>
+                        </li>
+                    </ul>
+                    <button onclick="openModal('Ready-to-Build')" class="block w-full py-4 px-6 bg-gradient-to-r from-brand-600 to-happy-violet text-white font-bold text-center rounded-full hover:shadow-lg hover:shadow-brand-500/30 transition-all hover:-translate-y-1 mt-auto" data-i18n="tier_2_cta">Paket buchen</button>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-[2rem] p-8 flex flex-col border border-white/20 hover:bg-white/15 transition-all duration-300">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="tier_3_name">Fractional TPO Retainer</h3>
+                        <p class="text-indigo-100 text-sm font-bold mb-4 min-h-[40px]" data-i18n="tier_3_sub">Die flexible Interims-Lösung, um Engpässe zu überbrücken und die Entwicklungsgeschwindigkeit hochzuhalten.</p>
+                        <div class="text-sm text-indigo-50 leading-relaxed mb-4" data-i18n="tier_3_ideal">Ideal für Teams, die eine zeitlich begrenzte Begleitung mit Expertise beim Projekt benötigen.</div>
+                    </div>
+
+                    <div class="mb-6">
+                        <span class="text-3xl font-bold text-white" data-i18n="tier_3_price">Auf Anfrage</span>
+                    </div>
+                    <div class="h-px bg-white/10 w-full mb-6"></div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-start text-indigo-50 text-sm">
+                            <i class="fa-solid fa-chess-board text-happy-sky mt-1 mr-3"></i>
+                            <span data-i18n="tier_3_feat_1"><strong>Strategy & Grooming:</strong> Priorisierung Backlog, Planung der Roadmap oder Lösung von Blocker</span>
+                        </li>
+                        <li class="flex items-start text-indigo-50 text-sm">
+                            <i class="fa-solid fa-calendar-check text-happy-sky mt-1 mr-3"></i>
+                            <span data-i18n="tier_3_feat_2"><strong>Jour fixe:</strong> 1x wöchentlicher Check-in (à 45 min) zur Synchronisation und Blocker-Lösung.</span>
+                        </li>
+                        <li class="flex items-start text-indigo-50 text-sm">
+                            <i class="fa-brands fa-slack text-happy-sky mt-1 mr-3"></i>
+                            <span data-i18n="tier_3_feat_3"><strong>Async-Priority Support:</strong> Bevorzugte Beantwortung deiner Fragen via Slack/Teams</span>
+                        </li>
+                        <li class="flex items-start text-indigo-50 text-sm">
+                            <i class="fa-solid fa-comments text-happy-sky mt-1 mr-3"></i>
+                            <span data-i18n="tier_3_feat_4"><strong>Sparring:</strong> Zweite Meinungen bei Entscheidungen oder Umsetzungs-Fragen</span>
+                        </li>
+                    </ul>
+                    <button onclick="openModal('Retainer')" class="block w-full py-4 px-6 bg-white/10 hover:bg-white/20 text-white font-bold text-center rounded-full transition-colors border border-white/20 mt-auto" data-i18n="tier_3_cta">Verfügbarkeit prüfen</button>
+                </div>
+            </div>
+
+            <!-- NDA Notice -->
+            <div class="text-center max-w-2xl mx-auto">
+                <p class="text-indigo-200 text-sm opacity-80" data-i18n="nda_notice">
+                    Hinweis: Vor Beginn der Zusammenarbeit vereinbaren wir selbstverständlich eine Vertraulichkeitsvereinbarung (NDA).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-sm text-brand-600 font-bold tracking-widest uppercase mb-4 bg-brand-50 inline-block px-4 py-1 rounded-full" data-i18n="expertise_subtitle">Expertise</h2>
+                <p class="text-4xl font-extrabold text-slate-900 mb-6" data-i18n="expertise_title">Kompetenz, die Business und Technik verbindet.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill 1 -->
+                <div class="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-soft hover:border-indigo-100 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-brand-600 text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <i class="fa-solid fa-gear text-[10px] ml-[-5px] mt-[10px]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="skill_1_title">Technical Product Ownership (TPO)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="skill_1_desc">Nicht nur verwalten, sondern gestalten. Ich übersetze Business-Ideen in User Stories mit klaren Akzeptanzkriterien. Ich prüfe die technische Machbarkeit (Feasibility) noch bevor das Ticket im Sprint landet.</p>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-soft hover:border-sky-100 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-sky-50 rounded-2xl flex items-center justify-center text-happy-sky text-2xl mb-6 group-hover:scale-110 group-hover:bg-happy-sky group-hover:text-white transition-all duration-300">
+                        <i class="fa-regular fa-file-lines"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="skill_2_title">Tool-Stack & Ticket-Hygiene</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="skill_2_desc">Ordnung ist das halbe Development. Ich bin Experte in der Strukturierung von Tickets. Ich sorge für saubere Backlogs, sinnvolle Workflows und Status-Updates, die jeder versteht.</p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-soft hover:border-purple-100 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center text-happy-violet text-2xl mb-6 group-hover:scale-110 group-hover:bg-happy-violet group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="skill_3_title">Media & System Architecture</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="skill_3_desc">Meine Branchen-Heimat. Tiefe Expertise in MAM-Workflows, Headless CMS und komplexen Asset-Pipelines. Ich verstehe Metadaten-Schemata und die Herausforderungen bei der Verarbeitung großer Datenmengen.</p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-soft hover:border-pink-100 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-pink-50 rounded-2xl flex items-center justify-center text-pink-500 text-2xl mb-6 group-hover:scale-110 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-plug"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="skill_4_title">Solution Engineering & APIs</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="skill_4_desc">Ich denke in Schnittstellen. Ob ERP, PIM oder DAM – ich entwerfe Integrationsszenarien und erstelle Architekturdiagramme, die sicherstellen, dass Drittsysteme nahtlos miteinander kommunizieren.</p>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-soft hover:border-orange-100 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500 text-2xl mb-6 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-rotate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="skill_5_title">Agile Prozess-Führung</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="skill_5_desc">Ob Scrum oder Kanban – ich kenne die Theorie, aber lebe die Praxis. Ich helfe Teams bei effektiven Refinements, realistischer Sprint-Planung und der Minimierung von Risiken im laufenden Betrieb.</p>
+                </div>
+
+                <!-- Skill 6 -->
+                <div class="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-soft hover:border-teal-100 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-500 text-2xl mb-6 group-hover:scale-110 group-hover:bg-teal-500 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="skill_6_title">Async-First Efficiency</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="skill_6_desc">Ergebnisse statt Meetings. Durch Video-Audits (Loom) und Dokumentation reduziere ich den Kommunikationsaufwand und schütze die „Deep Work“ Phasen deines Entwickler-Teams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Why Me -->
+    <section id="about" class="py-24 bg-brand-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[3rem] p-10 md:p-16 text-center relative overflow-hidden shadow-xl shadow-brand-100 group">
+                <!-- Decorative Circles -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-happy-sky opacity-5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:opacity-10 transition-opacity"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-happy-violet opacity-5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 group-hover:opacity-10 transition-opacity"></div>
+                
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8" data-i18n="about_title">Über mich</h2>
+                <h3 class="text-xl font-bold text-brand-600 mb-6" data-i18n="about_subtitle">Nicht nur verwalten, sondern verstehen.</h3>
+                
+                <div class="space-y-6 text-slate-700 leading-relaxed text-lg font-light text-left">
+                    <p data-i18n="about_p1">
+                        Als Technical Product Owner mit über 10 Jahren Erfahrung arbeite ich genau dort, wo es in vielen Projekten knirscht: An der Schnittstelle zwischen Business-Anforderungen und komplexer Technik.
+                    </p>
+                    <p data-i18n="about_p2">
+                        Mein Hintergrund liegt tief im technischen Projektmanagement und Solution Engineering. Das bedeutet: Ich kenne beide Welten. Ich habe sowohl Erfahrung in rein technischen Dev-Teams als auch in der strategischen Arbeit mit Kunden gesammelt.
+                    </p>
+                    <p data-i18n="about_p3">
+                        Ich verbinde tiefes technisches Verständnis mit den Anforderungen des Business. Ich bin das Missing Link, das oft fehlt. Ich verwalte nicht nur Tickets, sondern unterstütze Tech-Teams dabei, effizient zu arbeiten und eine schnelle Time-to-Market für den Produkt-Launch zu erreichen.
+                    </p>
+                    <p data-i18n="about_p4">
+                        Warum remote & asynchron? Ich glaube an „Make-Time“ statt Meeting-Marathons. Meine Arbeitsweise ist darauf ausgelegt, deinem Team klare, tech-ready Dokumentationen und Analysen zu liefern, mit denen Entwickler sofort arbeiten können. Das schützt die Fokus-Zeit deines Teams und garantiert Ergebnisse.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start mb-2">
+                        <div class="w-8 h-8 bg-brand-600 rounded-full flex items-center justify-center text-white text-[10px] font-bold mr-2 shadow-sm">AR</div>
+                        <span class="font-bold text-lg text-slate-800" data-i18n="footer_title">Andreas Raeder</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light" data-i18n="footer_sub">Expertise in MAM, CMS & Integrationen.</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-white hover:bg-brand-600 transition-all"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                    <a href="mailto:contact@example.com" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-white hover:bg-happy-sky transition-all"><i class="fa-solid fa-envelope text-lg"></i></a>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-100 mt-10 pt-8 text-center text-xs text-slate-400 font-light">
+                <p>&copy; 2026 Andreas Raeder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal (Optimized for Tally) -->
+    <div id="contact-modal" class="hidden fixed inset-0 z-[60] overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+
+        <div class="flex min-h-full items-center justify-center p-0 sm:p-4 text-center">
+            <!-- Modal Panel -->
+            <div class="relative transform overflow-hidden rounded-none sm:rounded-3xl bg-white text-left shadow-2xl transition-all w-full sm:max-w-4xl border border-white/20 h-screen sm:h-[85vh] flex flex-col">
+                
+                <!-- Content -->
+                <div class="flex-1 w-full bg-white relative overflow-hidden">
+                     <!-- Loading Spinner behind iframe -->
+                     <div id="tally-spinner" class="absolute inset-0 flex items-center justify-center text-brand-600 z-0">
+                        <i class="fa-solid fa-circle-notch fa-spin text-3xl"></i>
+                     </div>
+                     
+                     <iframe 
+                        id="tally-iframe"
+                        data-tally-src="https://tally.so/r/0Q7N29?transparentBackground=1" 
+                        loading="lazy" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        title="Let’s align on your project."
+                        class="relative z-10 w-full h-full"
+                        onload="document.getElementById('tally-spinner').style.display = 'none';">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Mobile Menu Logic ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if(btn) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                if(menu) menu.classList.add('hidden'); 
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // --- Modal Logic ---
+        const modal = document.getElementById('contact-modal');
+        const iframe = document.getElementById('tally-iframe');
+
+        function openModal(packageName) {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            // Re-trigger Tally embed load if needed
+            if (!iframe.src) {
+                iframe.src = iframe.dataset.tallySrc;
+            }
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        // --- Internationalization (i18n) Logic ---
+        
+        const translations = {
+            en: {
+                nav_services: "Packages",
+                nav_expertise: "Expertise",
+                nav_about: "About Me",
+                nav_book: "View Packages",
+                hero_title: "Technical Clarity for your Product. <span class='text-gradient'>Focus for your Team.</span>",
+                hero_desc: "From requirements audit to ongoing project support: I translate business goals into technical 'Ready-to-Code' tickets. Asynchronous, efficient, and with 10 years of experience.",
+                hero_cta_1: "View Packages",
+                hero_cta_2: "About Me",
+                
+                bridge_title: "Does this sound familiar?",
+                bridge_p1_title: "Unclear Tickets",
+                bridge_p1_desc: "Your user stories are often one-liners. Developers have to guess or improvise, leading to bugs and frustration.",
+                bridge_p2_title: "Velocity Drop",
+                bridge_p2_desc: "The team looks busy, but it feels like hardly any finished features are 'hitting the road'.",
+                bridge_p3_title: "Meeting Marathon",
+                bridge_p3_desc: "You spend more time discussing features than actually building them.",
+                bridge_conclusion: "\"It doesn't have to stay that way. I bring the necessary technical competence and structure to your project – as an external impulse or accompanying partner.\"",
+
+                pricing_subtitle: "Collaboration & Prices",
+                pricing_title: "Clear Definition of Done instead of Hourly Ping-Pong.",
+                pricing_desc: "Start with an audit or get direct support for implementation.",
+                
+                // Tier 1
+                tier_1_name: "Project Rescue Audit",
+                tier_1_sub: "The quick \"unblocker\" for stuck projects and unclear backlogs",
+                tier_1_ideal: "Ideal for Startups & SMBs where the dev team is blocked or prioritization is missing.",
+                tier_1_price_sub: "(Net / One-time)",
+                tier_1_feat_1: "<strong>Status Quo Analysis:</strong> Comprehensive review of your ticket management & documentation",
+                tier_1_feat_2: "<strong>The Silent Killers:</strong> Identifying the top 3 bottlenecks slowing down dev (process & tech)",
+                tier_1_feat_3: "<strong>Video Diagnosis:</strong> Detailed Loom walkthrough of the results",
+                tier_1_feat_4: "<strong>Action Plan:</strong> Prioritized step-by-step guide for immediate \"Quick Wins\"",
+                tier_1_cta: "Request Audit",
+                
+                // Tier 2
+                recommended: "Recommended",
+                tier_2_name: "Ready-to-Build Pack",
+                tier_2_sub: "Clarification and optimization of requirements to prevent expensive bad developments",
+                tier_2_ideal: "Ideal for teams wanting a completeness review before project start.",
+                tier_2_price_sub: "(Net / One-time)",
+                tier_2_feat_1: "<strong>Requirements Review:</strong> Check for completeness, logic errors, and tech feasibility",
+                tier_2_feat_2: "<strong>Tech-Alignment Call (60 min):</strong> Clarifying edge cases and constraints directly with your CTO/Lead Dev",
+                tier_2_feat_3: "<strong>Ticket Factory:</strong> Creation of up to 10 detailed User Stories incl. tech acceptance criteria",
+                tier_2_feat_4: "<strong>Risk Minimization:</strong> Identifying critical paths before the first line of code is written",
+                tier_2_cta: "Book Package",
+
+                // Tier 3
+                tier_3_name: "Fractional TPO Retainer",
+                tier_3_sub: "Flexible interim solution to bridge bottlenecks and keep velocity high",
+                tier_3_ideal: "Ideal for teams needing temporary project expertise accompaniment.",
+                tier_3_price: "On Request",
+                tier_3_feat_1: "<strong>Strategy & Grooming:</strong> Backlog prioritization, roadmap planning, or blocker resolution",
+                tier_3_feat_2: "<strong>Jour fixe:</strong> 1x weekly check-in (45 min) for sync and unblocking",
+                tier_3_feat_3: "<strong>Async-Priority Support:</strong> Preferred answering of questions via Slack/Teams",
+                tier_3_feat_4: "<strong>Sparring:</strong> Second opinions on decisions or implementation questions",
+                tier_3_cta: "Check Availability",
+                
+                nda_notice: "Note: Before starting any collaboration, we will naturally agree on a non-disclosure agreement (NDA).",
+
+                expertise_subtitle: "Expertise",
+                expertise_title: "Competence that connects Business and Tech.",
+                
+                skill_1_title: "Technical Product Ownership",
+                skill_1_desc: "Not just managing, but shaping. I translate business ideas into user stories with clear acceptance criteria. I check technical feasibility before the ticket lands in the sprint.",
+                skill_2_title: "Tool-Stack & Ticket Hygiene",
+                skill_2_desc: "Order is half of development. I am an expert in structuring tickets. I ensure clean backlogs, meaningful workflows, and status updates that everyone understands.",
+                skill_3_title: "Media & System Architecture",
+                skill_3_desc: "My industry home. Deep expertise in MAM workflows, headless CMS, and complex asset pipelines. I understand metadata schemas and challenges in processing large data volumes.",
+                skill_4_title: "Solution Engineering & APIs",
+                skill_4_desc: "I think in interfaces. Whether ERP, PIM, or DAM – I design integration scenarios and create architecture diagrams ensuring 3rd-party systems communicate seamlessly.",
+                skill_5_title: "Agile Process Leadership",
+                skill_5_desc: "Scrum or Kanban – I know the theory but live the practice. I help teams with effective refinements, realistic sprint planning, and risk minimization in ongoing operations.",
+                skill_6_title: "Async-First Efficiency",
+                skill_6_desc: "Results instead of meetings. Through video audits (Loom) and documentation, I reduce communication effort and protect your developer team's \"Deep Work\" phases.",
+
+                about_title: "About Me",
+                about_subtitle: "Not just managing, but understanding.",
+                about_p1: "As a Technical Product Owner with over 10 years of experience, I work exactly where things often grind in many projects: At the interface between business requirements and complex technology.",
+                about_p2: "My background lies deep in technical project management and solution engineering. That means: I know both worlds. I have gathered experience in pure technical dev teams as well as in strategic work with clients.",
+                about_p3: "I combine deep technical understanding with business requirements. I am the missing link that is often lacking. I don't just manage tickets, but support tech teams to work efficiently and achieve a fast Time-to-Market for product launch.",
+                about_p4: "Why remote & asynchronous? I believe in \"Make-Time\" instead of meeting marathons. My working style is designed to provide your team with clear, tech-ready documentation and analyses that developers can work with immediately. This protects your team's focus time and guarantees results.",
+
+                footer_title: "Andreas Raeder",
+                footer_sub: "Expertise in MAM, CMS & Integrations."
+            },
+            de: {
+                nav_services: "Pakete",
+                nav_expertise: "Expertise",
+                nav_about: "Über mich",
+                nav_book: "Pakete ansehen",
+                hero_title: "Technische Klarheit für dein Produkt. <span class='text-gradient'>Fokus für dein Team.</span>",
+                hero_desc: "Vom Anforderungs-Audit bis zur laufenden Projektbegleitung: Ich übersetze Business-Ziele in technische „Ready-to-Code“ Tickets. Asynchron, effizient und mit 10 Jahren Erfahrung.",
+                hero_cta_1: "Pakete ansehen",
+                hero_cta_2: "Über mich",
+                
+                bridge_title: "Kommt dir das bekannt vor?",
+                bridge_p1_title: "Unklare Tickets",
+                bridge_p1_desc: "Deine User Stories sind oft Einzeiler. Entwickler müssen raten oder improvisieren, was zu Bugs und Frust führt.",
+                bridge_p2_title: "Velocity-Einbruch",
+                bridge_p2_desc: "Das Team wirkt beschäftigt, aber gefühlt kommen kaum fertige Features „auf die Straße“.",
+                bridge_p3_title: "Meeting-Marathon",
+                bridge_p3_desc: "Ihr verbringt mehr Zeit damit, über Features zu diskutieren, als sie zu bauen.",
+                bridge_conclusion: "„Das muss nicht so bleiben. Ich bringe die nötige technische Kompetenz und Struktur in dein Projekt – als externer Impuls oder begleitender Partner.“",
+
+                pricing_subtitle: "Zusammenarbeit & Preise",
+                pricing_title: "Klare Definition of Done statt Stunden-Ping-Pong.",
+                pricing_desc: "Starte mit einem Audit oder hole dir direkte Unterstützung für die Umsetzung.",
+                
+                // Tier 1
+                tier_1_name: "Project Rescue Audit",
+                tier_1_sub: "Der schnelle „Unblocker“ für festgefahrene Projekte und unklare Backlogs",
+                tier_1_ideal: "Ideal für Startups & KMUs, deren Dev-Team blockiert ist oder wo die Priorisierung fehlt.",
+                tier_1_price_sub: "(Netto / Einmalig)",
+                tier_1_feat_1: "<strong>Status-Quo Analyse:</strong> Umfassende Durchsicht deiner Ticket-Verwaltung & Dokumentation",
+                tier_1_feat_2: "<strong>The Silent-Killers:</strong> Ich identifiziere die Top 3 Engpässe, die die Entwicklung ausbremsen (prozessual & technisch)",
+                tier_1_feat_3: "<strong>Video-Diagnose:</strong> Detailliertes Loom-Walkthrough durch die Ergebnisse",
+                tier_1_feat_4: "<strong>Action-Plan:</strong> Priorisierte Schritt-für-Schritt-Anleitung zur sofortigen Behebung („Quick Wins“).",
+                tier_1_cta: "Audit anfragen",
+                
+                // Tier 2
+                recommended: "Empfohlen",
+                tier_2_name: "Ready-to-Build Pack",
+                tier_2_sub: "Klärung und Optimierung der Anforderungen um teure Fehlentwicklungen zu verhindern",
+                tier_2_ideal: "Ideal für Teams, die vor Projekt-Start einen Review auf Vollständigkeit machen wollen.",
+                tier_2_price_sub: "(Netto / Einmalig)",
+                tier_2_feat_1: "<strong>Requirements Review:</strong> Prüfung auf Vollständigkeit, Logikfehler und Tech-Feasibility",
+                tier_2_feat_2: "<strong>Tech-Aligment Call (60 min):</strong> Klärung von Edge-Cases und Constraints direkt mit deinem CTO/Lead Dev",
+                tier_2_feat_3: "<strong>Ticket-Factory:</strong> Erstellung von bis zu 10 detaillierten User-Stories inkl. technischer Akzeptanzkriterien",
+                tier_2_feat_4: "<strong>Risiko-Minimierung:</strong> Aufzeigen kritischer Pfade, bevor die erste Zeile Code geschrieben wird.",
+                tier_2_cta: "Paket buchen",
+
+                // Tier 3
+                tier_3_name: "Fractional TPO Retainer",
+                tier_3_sub: "Die flexible Interims-Lösung, um Engpässe zu überbrücken und die Entwicklungsgeschwindigkeit hochzuhalten.",
+                tier_3_ideal: "Ideal für Teams, die eine zeitlich begrenzte Begleitung mit Expertise beim Projekt benötigen.",
+                tier_3_price: "Auf Anfrage",
+                tier_3_feat_1: "<strong>Strategy & Grooming:</strong> Priorisierung Backlog, Planung der Roadmap oder Lösung von Blocker",
+                tier_3_feat_2: "<strong>Jour fixe:</strong> 1x wöchentlicher Check-in (à 45 min) zur Synchronisation und Blocker-Lösung.",
+                tier_3_feat_3: "<strong>Async-Priority Support:</strong> Bevorzugte Beantwortung deiner Fragen via Slack/Teams",
+                tier_3_feat_4: "<strong>Sparring:</strong> Zweite Meinungen bei Entscheidungen oder Umsetzungs-Fragen",
+                tier_3_cta: "Verfügbarkeit prüfen",
+                
+                nda_notice: "Hinweis: Vor Beginn der Zusammenarbeit vereinbaren wir selbstverständlich eine Vertraulichkeitsvereinbarung (NDA).",
+
+                expertise_subtitle: "Expertise",
+                expertise_title: "Kompetenz, die Business und Technik verbindet.",
+                
+                skill_1_title: "Technical Product Ownership (TPO)",
+                skill_1_desc: "Nicht nur verwalten, sondern gestalten. Ich übersetze Business-Ideen in User Stories mit klaren Akzeptanzkriterien. Ich prüfe die technische Machbarkeit (Feasibility) noch bevor das Ticket im Sprint landet.",
+                skill_2_title: "Tool-Stack & Ticket-Hygiene",
+                skill_2_desc: "Ordnung ist das halbe Development. Ich bin Experte in der Strukturierung von Tickets. Ich sorge für saubere Backlogs, sinnvolle Workflows und Status-Updates, die jeder versteht.",
+                skill_3_title: "Media & System Architecture",
+                skill_3_desc: "Meine Branchen-Heimat. Tiefe Expertise in MAM-Workflows, Headless CMS und komplexen Asset-Pipelines. Ich verstehe Metadaten-Schemata und die Herausforderungen bei der Verarbeitung großer Datenmengen.",
+                skill_4_title: "Solution Engineering & APIs",
+                skill_4_desc: "Ich denke in Schnittstellen. Ob ERP, PIM oder DAM – ich entwerfe Integrationsszenarien und erstelle Architekturdiagramme, die sicherstellen, dass Drittsysteme nahtlos miteinander kommunizieren.",
+                skill_5_title: "Agile Prozess-Führung",
+                skill_5_desc: "Ob Scrum oder Kanban – ich kenne die Theorie, aber lebe die Praxis. Ich helfe Teams bei effektiven Refinements, realistischer Sprint-Planung und der Minimierung von Risiken im laufenden Betrieb.",
+                skill_6_title: "Async-First Efficiency",
+                skill_6_desc: "Ergebnisse statt Meetings. Durch Video-Audits (Loom) und Dokumentation reduziere ich den Kommunikationsaufwand und schütze die „Deep Work“ Phasen deines Entwickler-Teams.",
+
+                about_title: "Über mich",
+                about_subtitle: "Nicht nur verwalten, sondern verstehen.",
+                about_p1: "Als Technical Product Owner mit über 10 Jahren Erfahrung arbeite ich genau dort, wo es in vielen Projekten knirscht: An der Schnittstelle zwischen Business-Anforderungen und komplexer Technik.",
+                about_p2: "Mein Hintergrund liegt tief im technischen Projektmanagement und Solution Engineering. Das bedeutet: Ich kenne beide Welten. Ich habe sowohl Erfahrung in rein technischen Dev-Teams als auch in der strategischen Arbeit mit Kunden gesammelt.",
+                about_p3: "Ich verbinde tiefes technisches Verständnis mit den Anforderungen des Business. Ich bin das Missing Link, das oft fehlt. Ich verwalte nicht nur Tickets, sondern unterstütze Tech-Teams dabei, effizient zu arbeiten und eine schnelle Time-to-Market für den Produkt-Launch zu erreichen.",
+                about_p4: "Warum remote & asynchron? Ich glaube an „Make-Time“ statt Meeting-Marathons. Meine Arbeitsweise ist darauf ausgelegt, deinem Team klare, tech-ready Dokumentationen und Analysen zu liefern, mit denen Entwickler sofort arbeiten können. Das schützt die Fokus-Zeit deines Teams und garantiert Ergebnisse."
+            },
+            es: {
+                nav_services: "Paquetes",
+                nav_expertise: "Expertise",
+                nav_about: "Sobre mí",
+                nav_book: "Ver Paquetes",
+                hero_title: "Claridad Técnica para tu Producto. <span class='text-gradient'>Enfoque para tu Equipo.</span>",
+                hero_desc: "Desde la auditoría de requisitos hasta el soporte continuo del proyecto: Traduzco los objetivos comerciales en tickets técnicos 'Listos para Codificar'. Asíncrono, eficiente y con 10 años de experiencia.",
+                hero_cta_1: "Ver Paquetes",
+                hero_cta_2: "Sobre mí",
+                
+                bridge_title: "¿Te suena familiar?",
+                bridge_p1_title: "Tickets Poco Claros",
+                bridge_p1_desc: "Tus historias de usuario suelen ser de una sola línea. Los desarrolladores tienen que adivinar o improvisar, lo que lleva a errores y frustración.",
+                bridge_p2_title: "Caída de Velocidad",
+                bridge_p2_desc: "El equipo parece ocupado, pero se siente como si apenas se lanzaran funcionalidades terminadas.",
+                bridge_p3_title: "Maratón de Reuniones",
+                bridge_p3_desc: "Pasas más tiempo discutiendo funcionalidades que construyéndolas.",
+                bridge_conclusion: "“No tiene que ser así. Aporto la competencia técnica y estructura necesaria a tu proyecto – como impulso externo o socio acompañante.”",
+
+                pricing_subtitle: "Colaboración y Precios",
+                pricing_title: "Definición de Hecho (DoD) clara en lugar de Ping-Pong de horas.",
+                pricing_desc: "Comienza con una auditoría u obtén soporte directo para la implementación.",
+                
+                // Tier 1
+                tier_1_name: "Project Rescue Audit",
+                tier_1_sub: "El 'desbloqueador' rápido para proyectos estancados y backlogs poco claros",
+                tier_1_ideal: "Ideal para Startups y PYMES donde el equipo de desarrollo está bloqueado o falta priorización.",
+                tier_1_price_sub: "(Neto / Pago único)",
+                tier_1_feat_1: "<strong>Análisis del Status Quo:</strong> Revisión completa de tu gestión de tickets y documentación",
+                tier_1_feat_2: "<strong>Los Asesinos Silenciosos:</strong> Identificación de los 3 principales cuellos de botella que frenan el desarrollo (procesos y técnica)",
+                tier_1_feat_3: "<strong>Video Diagnóstico:</strong> Recorrido detallado en Loom de los resultados",
+                tier_1_feat_4: "<strong>Plan de Acción:</strong> Guía paso a paso priorizada para soluciones inmediatas ('Quick Wins')",
+                tier_1_cta: "Solicitar Auditoría",
+                
+                // Tier 2
+                recommended: "Recomendado",
+                tier_2_name: "Ready-to-Build Pack",
+                tier_2_sub: "Clarificación y optimización de requisitos para evitar costosos desarrollos erróneos",
+                tier_2_ideal: "Ideal para equipos que desean una revisión de integridad antes de iniciar el proyecto.",
+                tier_2_price_sub: "(Neto / Pago único)",
+                tier_2_feat_1: "<strong>Revisión de Requisitos:</strong> Verificación de integridad, errores lógicos y viabilidad técnica",
+                tier_2_feat_2: "<strong>Llamada de Alineación Técnica (60 min):</strong> Aclaración de casos límite y restricciones directamente con tu CTO/Lead Dev",
+                tier_2_feat_3: "<strong>Fábrica de Tickets:</strong> Creación de hasta 10 Historias de Usuario detalladas incl. criterios de aceptación técnica",
+                tier_2_feat_4: "<strong>Minimización de Riesgos:</strong> Identificación de rutas críticas antes de escribir la primera línea de código",
+                tier_2_cta: "Reservar Paquete",
+
+                // Tier 3
+                tier_3_name: "Fractional TPO Retainer",
+                tier_3_sub: "Solución interina flexible para superar cuellos de botella y mantener alta la velocidad",
+                tier_3_ideal: "Ideal para equipos que necesitan acompañamiento temporal con experiencia en el proyecto.",
+                tier_3_price: "A consultar",
+                tier_3_feat_1: "<strong>Estrategia y Grooming:</strong> Priorización del backlog, planificación de roadmap o resolución de bloqueos",
+                tier_3_feat_2: "<strong>Jour fixe:</strong> Check-in semanal (45 min) para sincronización y desbloqueo",
+                tier_3_feat_3: "<strong>Soporte Prioritario Asíncrono:</strong> Respuesta preferente a tus preguntas vía Slack/Teams",
+                tier_3_feat_4: "<strong>Sparring:</strong> Segundas opiniones en decisiones o preguntas de implementación",
+                tier_3_cta: "Consultar Disponibilidad",
+                
+                nda_notice: "Nota: Antes de comenzar cualquier colaboración, acordaremos naturalmente un acuerdo de confidencialidad (NDA).",
+
+                expertise_subtitle: "Expertise",
+                expertise_title: "Competencia que conecta Negocio y Tecnología.",
+                
+                skill_1_title: "Technical Product Ownership (TPO)",
+                skill_1_desc: "No solo gestionar, sino dar forma. Traduzco ideas de negocio en historias de usuario con criterios de aceptación claros. Verifico la viabilidad técnica antes de que el ticket llegue al sprint.",
+                skill_2_title: "Tool-Stack & Higiene de Tickets",
+                skill_2_desc: "El orden es la mitad del desarrollo. Soy experto en estructurar Jira, Linear, Asana o ClickUp. Aseguro backlogs limpios, flujos de trabajo con sentido y actualizaciones de estado que todos entienden.",
+                skill_3_title: "Arquitectura de Sistemas y Medios",
+                skill_3_desc: "Mi hogar en la industria. Profunda experiencia en flujos de trabajo MAM, CMS headless y pipelines de activos complejos. Entiendo esquemas de metadatos y los desafíos al procesar grandes volúmenes de datos.",
+                skill_4_title: "Ingeniería de Soluciones y APIs",
+                skill_4_desc: "Pienso en interfaces. Ya sea ERP, PIM o DAM – diseño escenarios de integración y creo diagramas de arquitectura que aseguran que los sistemas de terceros se comuniquen sin problemas.",
+                skill_5_title: "Liderazgo de Procesos Ágiles",
+                skill_5_desc: "Scrum o Kanban – conozco la teoría pero vivo la práctica. Ayudo a los equipos con refinamientos efectivos, planificación de sprints realista y minimización de riesgos en las operaciones en curso.",
+                skill_6_title: "Eficiencia Async-First",
+                skill_6_desc: "Resultados en lugar de reuniones. A través de video auditorías (Loom) y documentación, reduzco el esfuerzo de comunicación y protejo las fases de “Deep Work” de tu equipo de desarrollo.",
+
+                about_title: "Sobre mí",
+                about_subtitle: "No solo gestionar, sino entender.",
+                about_p1: "Como Technical Product Owner con más de 10 años de experiencia, trabajo exactamente donde a menudo surgen problemas en muchos proyectos: En la interfaz entre los requisitos del negocio y la tecnología compleja.",
+                about_p2: "Mi experiencia radica profundamente en la gestión de proyectos técnicos e ingeniería de soluciones. Eso significa: Conozco ambos mundos. He acumulado experiencia tanto en equipos puramente técnicos de desarrollo como en el trabajo estratégico con clientes.",
+                about_p3: "Combino un profundo entendimiento técnico con los requisitos del negocio. Soy el eslabón perdido que a menudo falta. No solo gestiono tickets, sino que apoyo a los equipos técnicos para trabajar de manera eficiente y lograr un rápido Time-to-Market para el lanzamiento del producto.",
+                about_p4: "¿Por qué remoto y asíncrono? Creo en “Make-Time” en lugar de maratones de reuniones. Mi forma de trabajar está diseñada para proporcionar a tu equipo documentación y análisis claros y listos para la tecnología, con los que los desarrolladores pueden trabajar de inmediato. Esto protege el tiempo de enfoque de tu equipo y garantiza resultados."
+            }
+        };
+
+        function changeLanguage(lang) {
+            // Update labels
+            document.getElementById('current-lang-label').textContent = lang.toUpperCase();
+            document.getElementById('mobile-lang-label').textContent = lang.toUpperCase();
+            
+            // Update all text elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        function cycleLanguage() {
+            const current = document.getElementById('mobile-lang-label').textContent;
+            if (current === 'EN') changeLanguage('de');
+            else if (current === 'DE') changeLanguage('es');
+            else changeLanguage('en');
+        }
+    </script>
+</body>
+</html>
